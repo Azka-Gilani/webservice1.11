@@ -45,7 +45,7 @@ def processRequest(req):
         minimum_value,maximum_value=maximum_value,minimum_value
     else:
         minimum_value,maximum_value=minimum_value,maximum_value    
-    baseurl = "https://fazendanatureza.com/bot/botarz.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+minimum_value+"&maxPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+ latest
+    baseurl = "https://fazendanatureza.com/bot/botarz.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+minimum_value+"&maxPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+ latest+"&UnitArea="+UnitArea
     result = urllib.urlopen(baseurl).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
@@ -102,13 +102,13 @@ def processArea(req):
 
 def processUnitArea(area,unit):
     if unit=="marla":
-    	value=area*272.251
+    	value=round(area*272.251,)
     if unit=="kanal":
-        value=area*5445
+        value=round(area*5445,)
     if unit=="square yard":
         value=area*9
     if unit=="square feet":
-        value=area
+        value=round(area,)
     return value
 
 def makeWebhookResult(data):
