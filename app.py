@@ -99,17 +99,6 @@ def processArea(req):
     area = parameters.get("AreaNumber")
     return area
 
-def processUnitArea(area,unit):
-    if unit=="marla":
-    	value=round(area*272.251,)
-    if unit=="kanal":
-        value=round(area*5445,)
-    if unit=="square yard":
-        value=area*9
-    if unit=="square feet":
-        value=round(area,)
-    return value
-
 def makeWebhookResult(data):
     i=0
     length=len(data)
