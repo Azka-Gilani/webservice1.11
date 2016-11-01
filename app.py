@@ -127,7 +127,7 @@ def makeWebhookResult(data):
         i+=1
     
     # print(json.dumps(item, indent=4))
-    speech = "This is the response from server."+ row_title[0] 
+    speech = "This is the response from server."+ value+ row_title[0] 
     print("Response:")
     print(speech)
     if "unable" in row_title[0]:
