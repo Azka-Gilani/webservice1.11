@@ -36,8 +36,10 @@ def processRequest(req):
     city_names=processlocation(req)
     sector_names=processSector(req)
     property_type=processPropertyType(req)
-    unit_property=processUnit(req)
+    #unit_property=processUnit(req)
     area_property=processArea(req)
+    number=2723
+    area_property=area_property * number 
     minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
     latest=processLatestProperties(req)
@@ -88,11 +90,11 @@ def processLatestProperties(req):
     latest = parameters.get("LatestProperties")
     return latest
 
-def processUnit(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    unit = parameters.get("Unit")
-    return unit
+#def processUnit(req):
+ #   result = req.get("result")
+# parameters = result.get("parameters")
+#    unit = parameters.get("Unit")
+#    return unit
 
 def processArea(req):
     result = req.get("result")
