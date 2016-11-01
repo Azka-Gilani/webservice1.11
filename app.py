@@ -37,6 +37,7 @@ def processRequest(req):
     property_type=processPropertyType(req)
     unit_property=processUnit(req)
     area_property=processArea(req)
+    something=processUnitArea(unit_property, area_property)
     if "marla" in unit_property:
     	value=round(area_property*272.251,)
     minimum_value=processMinimum(req)
@@ -127,7 +128,7 @@ def makeWebhookResult(data):
         i+=1
     
     # print(json.dumps(item, indent=4))
-    speech = "This is the response from server."+ value+ row_title[0] 
+    speech = "This is the response from server."+ row_title[0] 
     print("Response:")
     print(speech)
     if "unable" in row_title[0]:
