@@ -38,8 +38,8 @@ def processRequest(req):
     property_type=processPropertyType(req)
     #unit_property=processUnit(req)
     area_property=processArea(req)
-    number=2723
-    area_property=area_property * number 
+    number=int(2723)
+    area_property=int(area_property) * number 
     minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
     latest=processLatestProperties(req)
