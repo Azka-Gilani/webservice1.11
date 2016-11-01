@@ -37,7 +37,8 @@ def processRequest(req):
     property_type=processPropertyType(req)
     unit_property=processUnit(req)
     area_property=processArea(req)
-    UnitArea=processUnitArea(unit_property, area_property)
+    if "marla" in unit_property:
+    	value=round(area_property*272.251,)
     minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
     latest=processLatestProperties(req)
