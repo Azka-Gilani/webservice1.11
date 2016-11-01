@@ -88,11 +88,11 @@ def processLatestProperties(req):
     latest = parameters.get("LatestProperties")
     return latest
 
-#def processUnit(req):
- #   result = req.get("result")
-# parameters = result.get("parameters")
-#    unit = parameters.get("Unit")
-#    return unit
+def processUnit(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    unit = parameters.get("Unit")
+    return unit
 
 def processArea(req):
     result = req.get("result")
