@@ -38,7 +38,7 @@ def processRequest(req):
     unit_property=processUnit(req)
     area_property=processArea(req)
     value=0
-    if "marla" in unit_property:
+    if "marla " in unit_property:
     	value=round(area_property*272.251,0)
         value=int(value)
     minimum_value=processMinimum(req)
