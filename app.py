@@ -40,12 +40,12 @@ def processRequest(req):
     area_property=processArea(req)
     NoOfDays=processDate(req)
     DateUnit=processDateUnit(req)
-    Services=processServices(req)
-    Services1=processServices1(req)
-    Services2=processServices2(req)
-    Services3=processServices3(req)
-    Services4=processServices4(req)
-    Services5=processServices5(req)
+    school=processSchool(req)
+    malls=processMalls(req)
+    transport=processTransport(req)
+    security=processSecurity(req)
+    airport=processAirport(req)
+    fuel=processFuel(req)
     minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
     latest=processLatestProperties(req)
@@ -53,7 +53,7 @@ def processRequest(req):
         minimum_value,maximum_value=maximum_value,minimum_value
     else:
         minimum_value,maximum_value=minimum_value,maximum_value    
-    baseurl = "https://fazendanatureza.com/bot/botarz.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+minimum_value+"&maxPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&context_type="+DateUnit+"&context_num="+NoOfDays+"&school="+"&airport="+"&transport="+"&security="+"shopping_mall"+"&fuel="
+    baseurl = "https://fazendanatureza.com/bot/botarz.php?city_name="+city_names+"&sector_name="+sector_names+"&minPrice="+minimum_value+"&maxPrice="+maximum_value+"&type="+property_type+"&LatestProperties="+latest+"&UnitArea="+area_property+"&Unit="+unit_property+"&context_type="+DateUnit+"&context_num="+NoOfDays+"&school="+school+"&airport="+airport+"&transport="+transport+"&security="+security+"shopping_mall="+malls+"&fuel="+fuel
     result = urllib.urlopen(baseurl).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
@@ -111,50 +111,50 @@ def processArea(req):
 def processDate(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("NoOfDays")
-    return area
+    days = parameters.get("NoOfDays")
+    return days
 
 def processDateUnit(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("DayUnit")
-    return area
+    dayUnit = parameters.get("DayUnit")
+    return dayUnit
 
-def processServices(req):
+def processSchool(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("Services")
-    return area
+    school = parameters.get("school")
+    return school
 
-def processServices1(req):
+def processMalls(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("Services1")
-    return area
+    malls = parameters.get("malls")
+    return malls
 
-def processServices2(req):
+def processTransport(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("Services2")
-    return area
+    transport = parameters.get("transport")
+    return transport
 
-def processServices3(req):
+def processSecurity(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("Services3")
-    return area
+    security = parameters.get("security")
+    return security
 
-def processServices4(req):
+def processAirport(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("Services4")
-    return area
+    airport = parameters.get("airport")
+    return airport
 
-def processServices5(req):
+def processFuel(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    area = parameters.get("Services5")
-    return area
+    fuel = parameters.get("fuelstation")
+    return fuel
 
 def makeWebhookResult(data):
     i=0
