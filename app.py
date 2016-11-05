@@ -40,6 +40,12 @@ def processRequest(req):
     area_property=processArea(req)
     NoOfDays=processDate(req)
     DateUnit=processDateUnit(req)
+    Services=processServices(req)
+    Services1=processServices1(req)
+    Services2=processServices2(req)
+    Services3=processServices3(req)
+    Services4=processServices4(req)
+    Services5=processServices5(req)
     minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
     latest=processLatestProperties(req)
@@ -112,6 +118,42 @@ def processDateUnit(req):
     result = req.get("result")
     parameters = result.get("parameters")
     area = parameters.get("DayUnit")
+    return area
+
+def processServices(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("Services")
+    return area
+
+def processServices1(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("Services1")
+    return area
+
+def processServices2(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("Services2")
+    return area
+
+def processServices3(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("Services3")
+    return area
+
+def processServices4(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("Services4")
+    return area
+
+def processServices5(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("Services5")
     return area
 
 def makeWebhookResult(data):
