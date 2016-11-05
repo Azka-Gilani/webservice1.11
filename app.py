@@ -38,6 +38,8 @@ def processRequest(req):
     property_type=processPropertyType(req)
     unit_property=processUnit(req)
     area_property=processArea(req)
+    NoOfDays=processDate(req)
+    DateUnit=processDateUnit(req)
     minimum_value=processMinimum(req)
     maximum_value=processMaximum(req)
     latest=processLatestProperties(req)
@@ -98,6 +100,18 @@ def processArea(req):
     result = req.get("result")
     parameters = result.get("parameters")
     area = parameters.get("AreaNumber")
+    return area
+
+def processDate(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("NoOfDays")
+    return area
+
+def processDateUnit(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    area = parameters.get("DayUnit")
     return area
 
 def makeWebhookResult(data):
